@@ -20,11 +20,15 @@ def sliding_window(depth_list: tuple[int, ...]) -> tuple[int, ...]:
     return tuple(sum(depth_list[i: i + 3]) for i in indices)
 
 
-def day_1_part_1(depths: str) -> int:
+def day_1_part_1() -> int:
+    with open("inputs/day1") as f:
+        depths = f.read()
     return count_depth_increase(_extract_depth_list(depths))
 
 
-def day_1_part_2(depths: str) -> int:
+def day_1_part_2() -> int:
+    with open("inputs/day1") as f:
+        depths = f.read()
     depth_list = _extract_depth_list(depths)
     sliding_depth_list = sliding_window(depth_list)
     return count_depth_increase(sliding_depth_list)
